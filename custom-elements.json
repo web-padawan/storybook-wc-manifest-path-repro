@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "1.0.0",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "src/my-element.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "name": "MyElement",
+          "description": "An example element.",
+          "customElement": true,
+          "tagName": "my-element",
+          "members": [
+            {
+              "kind": "field",
+              "name": "count",
+              "type": { "text": "number" },
+              "default": "0",
+              "description": "The number of times the button has been clicked."
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "my-element",
+          "declaration": { "name": "MyElement", "module": "src/my-element.ts" }
+        }
+      ]
+    }
+  ]
+}
