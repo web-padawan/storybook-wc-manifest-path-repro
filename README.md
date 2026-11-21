@@ -9,7 +9,7 @@ Storybook 11.0.0-beta.3, `lit-vite/default-ts` sandbox.
 
 ## Steps
 
-1. Run `yarn build-storybook`.
+1. Run `npm run build-storybook`.
 2. See the `[repro]` lines in the output.
 
 ## Result
