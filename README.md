@@ -1,16 +1,18 @@
 # Repro: no declaring module in the web components docgen payload
 
-Storybook 11.0.0-beta.3, `lit-vite/default-ts` sandbox.
+Storybook 11.0.0-beta.3 with `@storybook/web-components-vite`.
 
-- `my-element`: declared in `custom-elements.json`, set in `framework.options.customElementsManifest`. Its module is `src/my-element.ts`.
-- `repro-element`: declared in no manifest, so web components docgen reads the sources.
-- `.storybook/log-manifest-path.js`: a docgen provider middleware that logs the `customElementsManifest` entry of the payload.
+- `src/my-element.ts` is declared in `custom-elements.json`, set in `framework.options.customElementsManifest`.
+- `src/repro-element.ts` is declared in no manifest, so docgen reads the sources.
+- `.storybook/log-docgen.js` is a docgen provider middleware that logs the `customElementsManifest` entry of each payload.
 - `typescript` is `~6.0.3`, as Storybook cannot generate declarations from sources with TypeScript 7.
 
 ## Steps
 
-1. Run `npm run build-storybook`.
-2. See the `[repro]` lines in the output.
+```sh
+npm install
+npm run build-storybook
+```
 
 ## Result
 

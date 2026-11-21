@@ -1,4 +1,12 @@
-// Docgen provider middleware that logs the `customElementsManifest` entry of the web components framework
+import { fileURLToPath } from 'node:url';
+
+// Adds this file as a docgen provider, after the one of the web components framework
+export const experimental_docgenProvider = (existing = []) => [
+  ...existing,
+  { moduleSpecifier: fileURLToPath(import.meta.url), options: {} },
+];
+
+// Logs the `customElementsManifest` entry of each payload
 export function createDocgenProvider() {
   return (next) => async (input) => {
     const payload = await next(input);

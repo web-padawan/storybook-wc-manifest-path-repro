@@ -1,4 +1,4 @@
 {
   "installDependencies": true,
-  "startCommand": "npm run storybook"
+  "startCommand": "npm run build-storybook"
 }
