@@ -4,14 +4,14 @@ Storybook 11.0.0-beta.3 with `@storybook/web-components-vite`.
 
 ## Problem
 
-`manifestPath` in docgen payload is different for 2 elements:
+The docgen payload of `my-element` has no path of its module, `src/my-element.ts`:
 
 - `src/my-element.ts`
   - declared in `custom-elements.json` set in `framework.options.customElementsManifest`
-  - docgen payload contains `manifestPath: "custom-elements.json"`
+  - docgen payload contains `manifestPath: "custom-elements.json"` and no module path
 - `src/repro-element.ts`
   - not declared in CEM, so docgen falls back to reading the source
-  - docgen payload contains `manifestPath: "src/repro-element.ts"`
+  - docgen payload has its module in `manifestPath: "src/repro-element.ts"`
 
 See `.storybook/log-docgen.js` for docgen provider middleware.
 
